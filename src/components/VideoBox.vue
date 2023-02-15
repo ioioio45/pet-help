@@ -1,40 +1,53 @@
 <template>
   <div>
-    <div
-    class="Video-box col"
-    v-bind:key="post"
-    v-for="post in posts"
-  >
-  <sideicons/>
-  <VideoList/>
-  <div class="justify-end column">
-    <div class="text">
-      <strong>
-        <p class="title">{{ post.title }}</p>
-      </strong>
-      <p class="body">{{ post.body }}</p>
-    </div>
-    <bottommenu/>
-  </div>
-
-  </div>
-
+    <swiper class="swiper" :options="swiperOption" :slides-per-view="1" :space-between="0" :direction="'vertical'">
+      <swiper-slide>
+          <sideicons style="position: absolute"/>
+          <VideoList/>
+      </swiper-slide>
+      <swiper-slide>
+          <sideicons style="position: absolute"/>
+          <VideoList/>
+      </swiper-slide>
+      <swiper-slide>
+          <sideicons style="position: absolute"/>
+          <VideoList/>
+      </swiper-slide>
+    </swiper>
   </div>
 
 </template>
 
 <script>
-import bottommenu from 'components/BottomMenu.vue'
 import sideicons from 'components/SideIcons.vue'
 import VideoList from 'components/VideoList.vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+
+import 'swiper/css'
+
 export default {
   components: {
-    bottommenu, sideicons, VideoList
+    sideicons,
+    VideoList,
+    Swiper,
+    SwiperSlide
   },
   props: {
     posts: {
       type: Array,
       required: true
+    }
+  },
+  setup () {
+    const onSwiper = (swiper) => {
+      console.log(swiper)
+    }
+    const onSlideChange = () => {
+      console.log('slide change')
+    }
+    return {
+      onSwiper,
+      onSlideChange
     }
   }
 }
@@ -46,14 +59,12 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-.Video-box {
-  height: 96vh;
-  width: 100vw;
-  border: 1px solid black
-}
 p {
   text-align: center;
 }
-sideicons {
+swiper-slide{
+  height:  100%;
+  position: relative;
+  color: #ffffff;
 }
 </style>

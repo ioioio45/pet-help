@@ -19,7 +19,18 @@ export default {
   },
   data () {
     return {
-      player: null
+      playerOptions: {
+        // videojs options
+        autoplay: true,
+        loop: true,
+        language: 'en',
+        muted: false,
+        playbackRates: [0.7, 1.0, 1.5, 2.0],
+        sources: [{
+          type: 'video/mp4',
+          src: 'https://joy1.videvo.net/videvo_files/video/free/2014-12/large_watermarked/Raindrops_Videvo_preview.mp4'
+        }]
+      }
     }
   },
   mounted () {
