@@ -1,14 +1,13 @@
 <template>
   <div>
     <div
-    class="Video-box column bg-primary"
+    class="Video-box col"
     v-bind:key="post"
     v-for="post in posts"
   >
-  <VideoList/>
   <sideicons/>
-  <div class="justify-end column" style="height: 23vh">
-    <VideoList/>
+  <VideoList/>
+  <div class="justify-end column">
     <div class="text">
       <strong>
         <p class="title">{{ post.title }}</p>
@@ -56,6 +55,5 @@ p {
   text-align: center;
 }
 sideicons {
-  height: 70vh
 }
 </style>

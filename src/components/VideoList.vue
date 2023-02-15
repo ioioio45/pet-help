@@ -1,8 +1,8 @@
 <template>
-  <div class="video-list">
+  <div class="video-list" style="position:relative; top:-77vh">
      <swiper class="swiper" :options="swiperOption">
       <swiper-slide>
-        <video-player style="" class="video-player-box video-js" ref="videoPlayer" :options="playerOptions"/>
+        <video-player style="z-index: 1000; height: 120vh" class="video-player-box video-js" ref="videoPlayer" :options="playerOptions"/>
       </swiper-slide>
     </swiper>
   </div>
@@ -60,12 +60,11 @@ export default {
 
   <style scoped>
 .video-list{
-  z-index:2
+  z-index:1;
 }
-
-swiper-container
+.swiper-container
 {
-  height: 100%;
+  height: 1000px
 
 }
 
